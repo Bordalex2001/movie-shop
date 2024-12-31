@@ -76,4 +76,23 @@ class MovieController extends Controller
             session()->flash('success', 'Movie successfully deleted.');
         }
     }
+
+    public function addMovie()
+    {
+        return view('add-movie');
+    }
+
+    public function movieStore(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:50',
+            'director' => 'required|string|max:50',
+            'poster' => 'required|url',
+            'price' => 'required|numeric'
+        ]);
+
+        Movie::create($validated);
+
+        return redirect('/movie-list')->with('success', 'Movie added!');
+    }
 }

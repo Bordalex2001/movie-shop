@@ -32,6 +32,7 @@
                 <input class="form-control me-2" type="search" placeholder="Search movies" aria-label="Search" name="search">
                 <button class="btn btn-outline-primary" type="submit">Search</button>
             </form>
+            <a href="{{ route('add-new-movie') }}" class="btn btn-outline-success ms-2">Add new movie</a>
         </div>
     </div>
 </div>
